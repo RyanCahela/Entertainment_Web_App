@@ -1,5 +1,6 @@
-import ColorSwatch from "./components/ColorSwatch";
+import SwatchContainer from "./components/colors/SwatchContainer";
 import { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 
 const GlobalCustomProperties = createGlobalStyle`
 :root {
@@ -30,19 +31,25 @@ Typography
 
 
 }
+
+body {
+  background-color: cornsilk ;
+  margin: 0;
+}
+`;
+
+const Container = styled.div`
+  max-width: 1200px;
+  margin-inline: auto;
 `;
 
 function App() {
   return (
-    <div className="App">
+    <Container>
       <GlobalCustomProperties />
       <h1>Hello World!</h1>
-      <ColorSwatch bgColor="--clr-primary-accent" color="--clr-black" />
-      <ColorSwatch bgColor="--clr-primary-dark" color="--clr-white" />
-      <ColorSwatch bgColor="--clr-primary-light" color="--clr-black" />
-      <ColorSwatch bgColor="--clr-white" color="--clr-black" />
-      <ColorSwatch bgColor="--clr-black" color="--clr-white" />
-    </div>
+      <SwatchContainer />
+    </Container>
   );
 }
 

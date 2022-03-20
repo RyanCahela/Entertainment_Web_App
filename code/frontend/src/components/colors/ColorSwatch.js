@@ -6,6 +6,12 @@ const Swatch = styled.div`
   color: var(${(props) => props.color});
   height: 200px;
   width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: thin;
+  font-family: sans-serif;
 `;
 
 const ColorSwatch = (props) => {
