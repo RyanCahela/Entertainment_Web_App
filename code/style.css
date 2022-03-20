@@ -1,0 +1,34 @@
+:root {
+/*******************
+Color Names
+********************/
+/* Primary */
+--red: 0deg 97% 63%;
+--greyish-blue: 223deg 23% 46%;
+--simi-dark-blue: 223deg 36% 14%;
+--dark-blue: 223deg 30% 9%;
+
+/* Neautral */
+--white: 0deg 0% 100%;
+
+/*******************
+Color Intentions
+********************/
+--clr-primary-accent: var(--red);
+--clr-primary-light: var(--greyish-blue);
+--clr-primary-dark: var(--simi-dark-blue);
+--clr-white: var(--white);
+--clr-black: var(--dark-blue);
+
+/*******************
+Typography
+********************/
+
+
+
+
+
+
+
+
+}
