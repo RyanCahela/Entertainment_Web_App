@@ -10,11 +10,11 @@ const Container = styled.div`
 const SwatchContainer = () => {
   return (
     <Container>
-      <ColorSwatch bgColor="--clr-primary-accent" color="--clr-black" />
-      <ColorSwatch bgColor="--clr-primary-dark" color="--clr-white" />
-      <ColorSwatch bgColor="--clr-primary-light" color="--clr-black" />
-      <ColorSwatch bgColor="--clr-white" color="--clr-black" />
-      <ColorSwatch bgColor="--clr-black" color="--clr-white" />
+      <ColorSwatch bgColor="--clr-primary-accent" fontColor="--clr-black" />
+      <ColorSwatch bgColor="--clr-primary-dark" fontColor="--clr-white" />
+      <ColorSwatch bgColor="--clr-primary-light" fontColor="--clr-black" />
+      <ColorSwatch bgColor="--clr-white" fontColor="--clr-black" />
+      <ColorSwatch bgColor="--clr-black" fontColor="--clr-white" />
     </Container>
   );
 };
