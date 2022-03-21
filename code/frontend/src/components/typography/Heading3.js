@@ -2,8 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 const H3 = styled.h3`
-  font-family: var(--ff-sans);
+  /* font-family: var(--ff-sans); */
   font-weight: var(--fw-medium);
+  font-size: var(--fs-600);
 `;
 
 const Heading3 = ({ props, children }) => {

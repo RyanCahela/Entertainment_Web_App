@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-const GlobalCustomProperties = createGlobalStyle`
+const GlobalCSSCustomProperties = createGlobalStyle`
 :root {
 /*******************
 Color Names
@@ -11,7 +11,7 @@ Color Names
 --simi-dark-blue: 223deg 36% 14%;
 --dark-blue: 223deg 30% 9%;
 
-/* Neautral */
+/* Neutral */
 --white: 0deg 0% 100%;
 
 /*******************
@@ -30,13 +30,19 @@ Typography
 --fw-light: 300;
 --fw-medium: 500;
 
-
+/* --fs-100: */
+/* --fs-200: */
+--fs-300: 0.8125rem; /* 13px */
+--fs-400: 0.9375rem; /* 15px */
+--fs-500: 1.125rem; /* 18px */
+--fs-600: 1.5rem; /* 24px */
+--fs-700: 2rem; /* 32px */
+/* --fs-800: */
+/* --fs-900: */
 }
 
-body {
-  background-color: cornsilk ;
-  margin: 0;
-}
+
+
 `;
 
-export default GlobalCustomProperties;
+export default GlobalCSSCustomProperties;

@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const H1 = styled.h1`
-  font-family: var(--ff-sans);
   font-weight: var(--fw-light);
+  font-size: var(--fs-700);
 `;
 
 const Heading1 = ({ props, children }) => {
