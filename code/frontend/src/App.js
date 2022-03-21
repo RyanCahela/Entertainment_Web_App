@@ -12,6 +12,8 @@ import HeadingContainer from "./components/typography/HeadingContainer";
 import ParagraphSmall from "./components/typography/ParagraphSmall";
 import ParagraphMedium from "./components/typography/ParagraphMedium";
 import Heading3 from "./components/typography/Heading3";
+import Heading1 from "./components/typography/Heading1";
+import SearchInput from "./components/inputs/SearchInput";
 
 const Container = styled.div`
   max-width: 1200px;
@@ -22,7 +24,6 @@ const Container = styled.div`
 function App() {
   return (
     <Container>
-      {/* <GlobalCSSNormalize /> */}
       <GlobalCSSElementDefaults />
       <GlobalCustomProperties />
       <SwatchContainer />
@@ -41,6 +42,11 @@ function App() {
         dolores officiis minus, porro molestias ipsa temporibus minima
         consequatur veritatis. Distinctio, officia.
       </ParagraphMedium>
+
+      <Heading1>Inputs</Heading1>
+      <Heading3>Search Input</Heading3>
+      <SearchInput></SearchInput>
+      <Heading3>Form Input</Heading3>
     </Container>
   );
 }

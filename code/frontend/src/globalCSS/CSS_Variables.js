@@ -24,6 +24,12 @@ Color Intentions
 --clr-black: hsl(var(--dark-blue));
 
 /*******************
+Color With Opacity
+********************/
+--clr-white-75-percent-opacity: hsla(var(--white) / 0.75);
+--clr-white-50-percent-opacity: hsla(var(--white) / 0.5);
+
+/*******************
 Typography
 ********************/
 --ff-sans: 'Outfit', sans-serif;
