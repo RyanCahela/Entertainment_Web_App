@@ -17,6 +17,8 @@ import Heading1 from "./components/typography/Heading1";
 import SearchInput from "./components/inputs/SearchInput";
 import TextInput from "./components/inputs/TextInput";
 import Button from "./components/inputs/Button";
+import BookmarkIcon from "./components/card/BookmarkIcon";
+
 const Container = styled.div`
   max-width: 1200px;
   margin-inline: auto;
@@ -56,6 +58,11 @@ function App() {
       <TextInput placeholder="Email Address" />
       <Heading3>Buttons</Heading3>
       <Button>Login to your account</Button>
+      <div style={{ backgroundColor: "lightgrey" }}>
+        <BookmarkIcon />
+        <BookmarkIcon />
+        <BookmarkIcon />
+      </div>
     </Container>
   );
 }
