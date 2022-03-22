@@ -2,8 +2,8 @@
 import styled from "styled-components";
 import "normalize.css";
 
-/* Global CSS Imports */
-import GlobalCustomProperties from "./globalCSS/CSS_Variables";
+/* Global CSS Style Imports */
+import GlobalCSSCustomProperties from "./globalCSS/CSS_Variables";
 import GlobalCSSElementDefaults from "./globalCSS/CSS_Element_Defaults";
 
 /* Component Imports */
@@ -14,18 +14,22 @@ import ParagraphMedium from "./components/typography/ParagraphMedium";
 import Heading3 from "./components/typography/Heading3";
 import Heading1 from "./components/typography/Heading1";
 import SearchInput from "./components/inputs/SearchInput";
+import TextInput from "./components/inputs/TextInput";
+import GlobalCSSUtilityClasses from "./globalCSS/CSS_Utility_Classes";
 
 const Container = styled.div`
   max-width: 1200px;
   margin-inline: auto;
   font-family: var(--ff-sans);
+  padding-bottom: 5rem;
 `;
 
 function App() {
   return (
     <Container>
       <GlobalCSSElementDefaults />
-      <GlobalCustomProperties />
+      <GlobalCSSCustomProperties />
+      <GlobalCSSUtilityClasses />
       <SwatchContainer />
       <HeadingContainer />
       <Heading3>Paragraph Small</Heading3>
@@ -45,8 +49,11 @@ function App() {
 
       <Heading1>Inputs</Heading1>
       <Heading3>Search Input</Heading3>
-      <SearchInput></SearchInput>
+      <SearchInput />
       <Heading3>Form Input</Heading3>
+      <TextInput placeholder="Email Address" isError="true" />
+      <TextInput placeholder="Email Address" />
+      <TextInput placeholder="Email Address" />
     </Container>
   );
 }

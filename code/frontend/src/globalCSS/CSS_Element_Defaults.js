@@ -7,6 +7,10 @@ body {
   color: var(--clr-white);
   margin: 0;
 }
+
+.border-big {
+  border: 5px solid red;
+}
 `;
 
 export default GlobalCSSElementDefaults;
