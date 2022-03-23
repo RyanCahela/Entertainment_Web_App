@@ -28,6 +28,7 @@ Color With Opacity
 ********************/
 --clr-white-75-percent-opacity: hsla(var(--white) / 0.75);
 --clr-white-50-percent-opacity: hsla(var(--white) / 0.5);
+--clr-white-25-percent-opacity: hsla(var(--white) / 0.25);
 --clr-black-50-percent-opacity: hsla(var(--dark-blue) / 0.5);
 
 /*******************

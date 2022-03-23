@@ -17,7 +17,8 @@ import Heading1 from "./components/typography/Heading1";
 import SearchInput from "./components/inputs/SearchInput";
 import TextInput from "./components/inputs/TextInput";
 import Button from "./components/inputs/Button";
-import BookmarkIcon from "./components/card/BookmarkIcon";
+import BookmarkIcon from "./components/icons/BookmarkIcon";
+import Thumbnail from "./components/card/Thumbnail";
 
 const Container = styled.div`
   max-width: 1200px;
@@ -63,6 +64,8 @@ function App() {
         <BookmarkIcon />
         <BookmarkIcon />
       </div>
+
+      <Thumbnail />
     </Container>
   );
 }
