@@ -46,10 +46,12 @@ Typography
 --fs-700: 2rem; /* 32px */
 /* --fs-800: */
 /* --fs-900: */
-}
 
 
-
-`;
+/*******************
+Animation
+********************/
+--transition-duration-fast: 0.2s;
+}`;
 
 export default GlobalCSSCustomProperties;

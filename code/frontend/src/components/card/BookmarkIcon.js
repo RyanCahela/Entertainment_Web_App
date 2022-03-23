@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import BookmarkEmpty from "../../assets/icon-bookmark-empty.svg";
-import BookmarkFull from "../../assets/icon-bookmark-full.svg";
+import { ReactComponent as BookmarkEmpty } from "../../assets/icon-bookmark-empty.svg";
+import { ReactComponent as BookmarkFull } from "../../assets/icon-bookmark-full.svg";
+import Icon from "../../components/icons/Icon";
 
 const Container = styled.span`
   background-color: var(--clr-black-50-percent-opacity);
@@ -13,6 +14,10 @@ const Container = styled.span`
   align-items: center;
   justify-content: center;
 
+  transition-property: background-color, color;
+  transition-duration: var(--transition-duration-fast);
+  transition-timing-function: ease-in;
+
   &:hover {
     color: var(--clr-black);
     cursor: pointer;
@@ -20,24 +25,14 @@ const Container = styled.span`
   }
 `;
 
-const StyledIcon = styled.object``;
-
 const BookmarkIcon = () => {
   const [isActive, setIsActive] = useState(false);
   return (
     <Container>
       {isActive ? (
-        <StyledIcon
-          type="image/svg+xml"
-          data={BookmarkFull}
-          alt="bookmark icon checked"
-        />
+        <Icon SvgElement={BookmarkFull} />
       ) : (
-        <StyledIcon
-          type="image/svg+xml"
-          data={BookmarkEmpty}
-          alt="bookmark icon unchecked"
-        />
+        <Icon SvgElement={BookmarkEmpty} />
       )}
     </Container>
   );

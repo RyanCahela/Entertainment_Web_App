@@ -15,7 +15,7 @@ const StyledButton = styled.button`
 
   /* animation */
   transition-property: background-color, color;
-  transition-duration: 0.3s;
+  transition-duration: var(--transition-duration-fast);
   transition-easing-function: ease-in;
 
   &:hover {
