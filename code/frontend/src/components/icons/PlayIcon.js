@@ -6,6 +6,10 @@ import BookmarkIcon from "./BookmarkIcon";
 
 const StyledPlayIcon = styled(Icon)``;
 
+const Container = styled.div`
+  /* display: flex; */
+`;
+
 const PlayIcon = () => {
   return (
     <Container>

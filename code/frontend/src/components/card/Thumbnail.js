@@ -10,6 +10,10 @@ const Container = styled.div`
   align-items: center;
   position: relative;
 
+  //temporary just for UI design, delete after placed in card component
+  max-width: 280px;
+  margin-inline: auto;
+
   &::before {
     content: "";
     background-color: transparent;
@@ -27,6 +31,7 @@ const Container = styled.div`
 
   &:hover::before {
     background-color: var(--clr-black-50-percent-opacity);
+    cursor: pointer;
   }
 `;
 
@@ -49,13 +54,14 @@ const PlayContainer = styled.div`
   &:hover {
     cursor: pointer;
     background-color: var(--clr-white-50-percent-opacity);
+    transform: translate(-50%, -53%);
   }
 `;
 
-const StyledBookmarkIcon = styled(BookmarkIcon)`
+const BookmarkIconContainer = styled.div`
   position: absolute;
-  top: 0;
-  right: 0;
+  inset-block-start: 1rem;
+  inset-inline-end: 1rem;
   z-index: 2;
 `;
 
@@ -72,7 +78,9 @@ const Thumbnail = () => {
         <Icon SvgElement={PlayIconSvg} />
         <span>Play</span>
       </PlayContainer>
-      <StyledBookmarkIcon />
+      <BookmarkIconContainer>
+        <BookmarkIcon />
+      </BookmarkIconContainer>
     </Container>
   );
 };
