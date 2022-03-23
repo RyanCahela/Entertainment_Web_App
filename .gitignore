@@ -1,3 +1,4 @@
 node_modules/
 env
 design_files/
+.DS_Store
