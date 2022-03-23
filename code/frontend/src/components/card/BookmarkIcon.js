@@ -27,8 +27,13 @@ const Container = styled.span`
 
 const BookmarkIcon = () => {
   const [isActive, setIsActive] = useState(false);
+
   return (
-    <Container>
+    <Container
+      onClick={(e) => {
+        setIsActive(!isActive);
+      }}
+    >
       {isActive ? (
         <Icon SvgElement={BookmarkFull} />
       ) : (
