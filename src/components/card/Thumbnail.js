@@ -33,9 +33,16 @@ const Container = styled.div`
     background-color: var(--clr-black-50-percent-opacity);
     cursor: pointer;
   }
+
+  &:hover > .play-container {
+    opacity: 1;
+  }
 `;
 
 const PlayContainer = styled.div`
+  /* changes based on parent hover state */
+  opacity: 0;
+
   display: flex;
   background-color: var(--clr-white-25-percent-opacity);
   border-radius: 1000px;
@@ -49,12 +56,19 @@ const PlayContainer = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition-property: opacity;
+  transition-duration: var(--transition-duration-fast);
+  transiiotn-timing-function: ease-in;
   z-index: 2;
 
   &:hover {
     cursor: pointer;
     background-color: var(--clr-white-50-percent-opacity);
     transform: translate(-50%, -53%);
+  }
+
+  &:active {
+    transform: translate(-50%, -50%);
   }
 `;
 
@@ -74,7 +88,8 @@ const Thumbnail = () => {
   return (
     <Container>
       <Image src="https://picsum.photos/280/174" />
-      <PlayContainer>
+
+      <PlayContainer className="play-container">
         <Icon SvgElement={PlayIconSvg} />
         <span>Play</span>
       </PlayContainer>

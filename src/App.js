@@ -19,6 +19,7 @@ import TextInput from "./components/inputs/TextInput";
 import Button from "./components/inputs/Button";
 import BookmarkIcon from "./components/icons/BookmarkIcon";
 import Thumbnail from "./components/card/Thumbnail";
+import MediaCard from "./components/card/MediaCard";
 
 const Container = styled.div`
   max-width: 1200px;
@@ -66,6 +67,7 @@ function App() {
       </div>
 
       <Thumbnail />
+      <MediaCard />
     </Container>
   );
 }
