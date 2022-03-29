@@ -1,4 +1,5 @@
 /* Package Imports */
+import { useReducer, useEffect } from "react";
 import styled from "styled-components";
 import "normalize.css";
 
@@ -28,7 +29,16 @@ const Container = styled.div`
   padding-bottom: 5rem;
 `;
 
+const initialState = {};
+
+const reducerFunction = (state, action) => {
+  return state;
+};
+
 function App() {
+  const [media, dispatch] = useReducer(reducerFunction, initialState);
+  useEffect(() => {}, []);
+
   return (
     <Container>
       <GlobalCSSElementDefaults />
@@ -67,7 +77,8 @@ function App() {
       </div>
 
       <Thumbnail />
-      <MediaCard />
+      <MediaCard category="tv" rating="pg" year="2019" />
+      <MediaCard category="movie" />
     </Container>
   );
 }

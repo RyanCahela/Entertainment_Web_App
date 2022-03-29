@@ -1,19 +1,27 @@
 import React from "react";
 import styled from "styled-components";
 import Thumbnail from "./Thumbnail.js";
+import Icon from "../icons/Icon";
+import { ReactComponent as IconCategoryTv } from "../../assets/icon-category-tv.svg";
+import { ReactComponent as IconCategoryMovies } from "../../assets/icon-category-movie.svg";
 
 const Container = styled.div`
   width: 280px;
 `;
 
-const MediaCard = () => {
+const MediaCard = ({ year, category, rating }) => {
   return (
     <Container>
       <Thumbnail />
       <div>
-        <span>2019</span>
-        <span>Movie</span>
-        <span>PG</span>
+        <span>{year}</span>
+        {category === "tv" ? (
+          <Icon SvgElement={IconCategoryTv} />
+        ) : (
+          <Icon SvgElement={IconCategoryMovies} />
+        )}
+        <span>{category}</span>
+        <span>{rating}</span>
       </div>
       <div>The Great Lands</div>
     </Container>
