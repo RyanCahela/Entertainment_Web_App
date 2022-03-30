@@ -9,10 +9,10 @@ const Container = styled.div`
   width: 280px;
 `;
 
-const MediaCard = ({ year, category, rating }) => {
+const MediaCard = ({ year, category, rating, thumbnail, title }) => {
   return (
     <Container>
-      <Thumbnail />
+      <Thumbnail imgSrc={thumbnail.regular} title={title} />
       <div>
         <span>{year}</span>
         {category === "tv" ? (

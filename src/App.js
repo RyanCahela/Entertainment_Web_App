@@ -31,7 +31,7 @@ const Container = styled.div`
 `;
 
 //State Management
-const initialState = {};
+const initialState = [];
 const actionStrings = {
   MEDIA_LOAD_SUCCESS: "MEDIA_LOAD_SUCCESS",
   MEDIA_BOOKMARKED: "MEDIA_BOOKMARKED",
@@ -58,7 +58,7 @@ function App() {
   const [media, dispatch] = useReducer(reducerFunction, initialState);
 
   const loadData = () => {
-    const URL = "http://localhost:5000";
+    const URL = "https://ryan-entertainment-web-app.herokuapp.com/";
     async function getMediaData() {
       const data = await fetch(URL);
       const json = await data.json();
@@ -111,9 +111,11 @@ function App() {
         <BookmarkIcon />
       </div>
 
-      <Thumbnail />
-      <MediaCard category="tv" rating="pg" year="2019" />
-      <MediaCard category="movie" />
+      {media.length === 0
+        ? null
+        : media.map((mediaObject) => {
+            return <MediaCard {...mediaObject} />;
+          })}
     </Container>
   );
 }

@@ -84,11 +84,10 @@ const Image = styled.img`
   z-index: -1;
 `;
 
-const Thumbnail = () => {
+const Thumbnail = ({ imgSrc, title }) => {
   return (
     <Container>
-      <Image src="https://picsum.photos/280/174" />
-
+      <Image src={imgSrc.large} alt={`thumbnail for ${title}`} />
       <PlayContainer className="play-container">
         <Icon SvgElement={PlayIconSvg} />
         <span>Play</span>
