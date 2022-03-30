@@ -1,5 +1,5 @@
 /* Package Imports */
-import { useReducer, useEffect } from "react";
+import { useReducer, useEffect, useState } from "react";
 import styled from "styled-components";
 import "normalize.css";
 
@@ -22,6 +22,7 @@ import BookmarkIcon from "./components/icons/BookmarkIcon";
 import Thumbnail from "./components/card/Thumbnail";
 import MediaCard from "./components/card/MediaCard";
 
+// CSS
 const Container = styled.div`
   max-width: 1200px;
   margin-inline: auto;
@@ -29,15 +30,49 @@ const Container = styled.div`
   padding-bottom: 5rem;
 `;
 
+//State Management
 const initialState = {};
-
-const reducerFunction = (state, action) => {
-  return state;
+const actionStrings = {
+  MEDIA_LOAD_SUCCESS: "MEDIA_LOAD_SUCCESS",
+  MEDIA_BOOKMARKED: "MEDIA_BOOKMARKED",
 };
 
+const reducerFunction = (state, action) => {
+  switch (action.type) {
+    case actionStrings.MEDIA_LOAD_SUCCESS:
+      return action.payload.data;
+    case actionStrings.MEDIA_BOOKMARKED:
+      return state.map((mediaObject) => {
+        if (mediaObject.id === action.payload.id) {
+          mediaObject.isBookmarked = true;
+        }
+        return mediaObject;
+      });
+    default:
+      return state;
+  }
+};
+
+//Component
 function App() {
   const [media, dispatch] = useReducer(reducerFunction, initialState);
-  useEffect(() => {}, []);
+
+  const loadData = () => {
+    const URL = "http://localhost:5000";
+    async function getMediaData() {
+      const data = await fetch(URL);
+      const json = await data.json();
+      return json;
+    }
+
+    getMediaData().then((json) => {
+      dispatch({
+        type: actionStrings.MEDIA_LOAD_SUCCESS,
+        payload: { data: json },
+      });
+    });
+  };
+  useEffect(loadData, []);
 
   return (
     <Container>
