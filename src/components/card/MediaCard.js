@@ -12,7 +12,7 @@ const Container = styled.div`
 const MediaCard = ({ year, category, rating, thumbnail, title }) => {
   return (
     <Container>
-      <Thumbnail imgSrc={thumbnail.regular} title={title} />
+      <Thumbnail imgPaths={thumbnail.regular} title={title} />
       <div>
         <span>{year}</span>
         {category === "tv" ? (

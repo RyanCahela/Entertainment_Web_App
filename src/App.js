@@ -21,6 +21,7 @@ import Button from "./components/inputs/Button";
 import BookmarkIcon from "./components/icons/BookmarkIcon";
 import Thumbnail from "./components/card/Thumbnail";
 import MediaCard from "./components/card/MediaCard";
+import constants from "./components/constants/constants";
 
 // CSS
 const Container = styled.div`
@@ -58,7 +59,7 @@ function App() {
   const [media, dispatch] = useReducer(reducerFunction, initialState);
 
   const loadData = () => {
-    const URL = "https://ryan-entertainment-web-app.herokuapp.com/";
+    const URL = constants.BASE_URL;
     async function getMediaData() {
       const data = await fetch(URL);
       const json = await data.json();

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import BookmarkIcon from "../icons/BookmarkIcon";
 import { ReactComponent as PlayIconSvg } from "../../assets/icon-play.svg";
 import Icon from "../icons/Icon";
+import constants from "../constants/constants";
 
 const Container = styled.div`
   display: flex;
@@ -85,10 +86,24 @@ const Image = styled.img`
   width: 100%;
 `;
 
-const Thumbnail = ({ imgSrc, title }) => {
+const Thumbnail = ({ imgPaths, title }) => {
+  const { small, medium, large } = imgPaths;
+  const { BASE_URL } = constants;
+
+  const imgUrlSmall = `${BASE_URL}api${small.slice(1)}`;
+  const imgUrlMedium = `${BASE_URL}api${medium.slice(1)}`;
+  const imgUrlLarge = `${BASE_URL}api${large.slice(1)}`;
+
   return (
     <Container>
-      <Image src={imgSrc.large} alt={`thumbnail for ${title}`} />
+      <Image
+        srcset={`
+          ${imgUrlSmall} 328w,
+          ${imgUrlMedium} 440w,
+          ${imgUrlLarge} 560w
+        `}
+        alt={`thumbnail for ${title}`}
+      />
       <PlayContainer className="play-container">
         <Icon SvgElement={PlayIconSvg} />
         <span>Play</span>
