@@ -82,6 +82,7 @@ const BookmarkIconContainer = styled.div`
 const Image = styled.img`
   object-fit: cover;
   z-index: -1;
+  width: 100%;
 `;
 
 const Thumbnail = ({ imgSrc, title }) => {
