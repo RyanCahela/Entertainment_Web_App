@@ -22,6 +22,7 @@ import BookmarkIcon from "./components/icons/BookmarkIcon";
 import Thumbnail from "./components/card/Thumbnail";
 import MediaCard from "./components/card/MediaCard";
 import constants from "./components/constants/constants";
+import Header from "./components/header/Header";
 
 // CSS
 const Container = styled.div`
@@ -80,6 +81,8 @@ function App() {
       <GlobalCSSElementDefaults />
       <GlobalCSSCustomProperties />
       <GlobalCSSUtilityClasses />
+
+      <Header />
       <SwatchContainer />
       <HeadingContainer />
       <Heading3>Paragraph Small</Heading3>

@@ -1,4 +1,5 @@
-const Icon = ({ SvgElement }) => {
+const Icon = ({ svgElement }) => {
+  const SvgElement = svgElement;
   return <SvgElement />;
 };
 

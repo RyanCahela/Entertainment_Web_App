@@ -97,7 +97,7 @@ const Thumbnail = ({ imgPaths, title }) => {
   return (
     <Container>
       <Image
-        srcset={`
+        srcSet={`
           ${imgUrlSmall} 328w,
           ${imgUrlMedium} 440w,
           ${imgUrlLarge} 560w
@@ -105,7 +105,7 @@ const Thumbnail = ({ imgPaths, title }) => {
         alt={`thumbnail for ${title}`}
       />
       <PlayContainer className="play-container">
-        <Icon SvgElement={PlayIconSvg} />
+        <PlayIconSvg />
         <span>Play</span>
       </PlayContainer>
       <BookmarkIconContainer>

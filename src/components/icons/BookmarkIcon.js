@@ -34,11 +34,7 @@ const BookmarkIcon = () => {
         setIsActive(!isActive);
       }}
     >
-      {isActive ? (
-        <Icon SvgElement={BookmarkFull} />
-      ) : (
-        <Icon SvgElement={BookmarkEmpty} />
-      )}
+      {isActive ? <BookmarkFull /> : <BookmarkEmpty />}
     </Container>
   );
 };
