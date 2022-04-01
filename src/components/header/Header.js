@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/logo.svg";
 import { ReactComponent as IconNavBookmark } from "../../assets/icon-nav-bookmark.svg";
 import { ReactComponent as IconNavHome } from "../../assets/icon-nav-home.svg";
@@ -29,7 +29,31 @@ const AvatarImage = styled.img`
   border-radius: 1000rem;
 `;
 
+const HomeIcon = styled(IconNavHome)`
+  color: ${({ pathname }) =>
+    pathname === "/" ? "var(--clr-white)" : "var(--clr-primary-light)"};
+`;
+
+const MoviesIcon = styled(IconNavMovies)`
+  color: ${({ pathname }) =>
+    pathname === "/movies" ? "var(--clr-white)" : "var(--clr-primary-light)"};
+`;
+
+const TvIcon = styled(IconNavTv)`
+  color: ${({ pathname }) =>
+    pathname === "/tv" ? "var(--clr-white)" : "var(--clr-primary-light)"};
+`;
+
+const BookmarksIcon = styled(IconNavBookmark)`
+  color: ${({ pathname }) =>
+    pathname === "/bookmarks"
+      ? "var(--clr-white)"
+      : "var(--clr-primary-light)"};
+`;
+
 function Header() {
+  const location = useLocation();
+
   return (
     <Container>
       <Logo />
@@ -37,22 +61,22 @@ function Header() {
         <NavList>
           <li>
             <Link to="/">
-              <IconNavHome />
+              <HomeIcon {...location} />
             </Link>
           </li>
           <li>
             <Link to="/movies">
-              <IconNavMovies />
+              <MoviesIcon {...location} />
             </Link>
           </li>
           <li>
             <Link to="/tv">
-              <IconNavTv />
+              <TvIcon {...location} />
             </Link>
           </li>
           <li>
             <Link to="/bookmarks">
-              <IconNavBookmark />
+              <BookmarksIcon {...location} />
             </Link>
           </li>
         </NavList>
