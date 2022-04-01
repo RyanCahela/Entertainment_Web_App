@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/logo.svg";
 import { ReactComponent as IconNavBookmark } from "../../assets/icon-nav-bookmark.svg";
 import { ReactComponent as IconNavHome } from "../../assets/icon-nav-home.svg";
@@ -11,6 +12,7 @@ const Container = styled.header`
   justify-content: space-between;
   align-items: center;
   min-width: 100%;
+  padding-inline: 1rem;
 `;
 
 const NavList = styled.ul`
@@ -31,19 +33,27 @@ function Header() {
   return (
     <Container>
       <Logo />
-      <nav>
+      <nav role="navigation">
         <NavList>
           <li>
-            <IconNavHome />
+            <Link to="/">
+              <IconNavHome />
+            </Link>
           </li>
           <li>
-            <IconNavMovies />
+            <Link to="/movies">
+              <IconNavMovies />
+            </Link>
           </li>
           <li>
-            <IconNavTv />
+            <Link to="/tv">
+              <IconNavTv />
+            </Link>
           </li>
           <li>
-            <IconNavBookmark />
+            <Link to="/bookmarks">
+              <IconNavBookmark />
+            </Link>
           </li>
         </NavList>
       </nav>
