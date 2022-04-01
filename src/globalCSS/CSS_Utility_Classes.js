@@ -11,6 +11,10 @@ const GlobalCSSUtilityClasses = createGlobalStyle`
   white-space: nowrap; 
   width: 1px;
 }
+
+.border-big {
+  border: 5px solid red;
+}
 `;
 
 export default GlobalCSSUtilityClasses;

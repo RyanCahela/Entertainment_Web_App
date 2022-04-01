@@ -16,9 +16,12 @@ body {
   margin: 0;
 }
 
-.border-big {
-  border: 5px solid red;
+ul[class] {
+  padding-left: 0;
+  list-style: none;
 }
+
+
 `;
 
 export default GlobalCSSElementDefaults;

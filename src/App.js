@@ -1,10 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import { Routes, Route } from "react-router-dom";
+
+/* Page Imports */
 import HomePage from "./pages/HomePage";
 import MoviesPage from "./pages/MoviesPage";
 import TvPage from "./pages/TvPage";
 import BookmarkPage from "./pages/BookmarkPage";
+
+/* Component Imports */
 import Header from "./components/header/Header";
 
 const Container = styled.div`
