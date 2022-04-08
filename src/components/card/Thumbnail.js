@@ -11,7 +11,7 @@ const Container = styled.div`
   position: relative;
 
   //temporary just for UI design, delete after placed in card component
-  max-width: 280px;
+  max-width: 100%;
   margin-inline: auto;
 
   &::before {
