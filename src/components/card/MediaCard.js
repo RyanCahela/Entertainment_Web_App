@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Thumbnail from "./Thumbnail.js";
 import { ReactComponent as IconCategoryTv } from "../../assets/icon-category-tv.svg";
 import { ReactComponent as IconCategoryMovies } from "../../assets/icon-category-movie.svg";
+import { MediaCategory } from "../constants/constants.js";
 
 const Container = styled.div`
   width: 100%;
@@ -72,7 +73,11 @@ const MediaCard = ({ year, category, rating, thumbnail, title }) => {
       <MediaDetails>
         <MediaReleaseYear>{year}</MediaReleaseYear>
         <Category>
-          {category === "tv" ? <IconCategoryTv /> : <IconCategoryMovies />}
+          {category === MediaCategory.TV ? (
+            <IconCategoryTv />
+          ) : (
+            <IconCategoryMovies />
+          )}
           {category}
         </Category>
         <span>{rating}</span>

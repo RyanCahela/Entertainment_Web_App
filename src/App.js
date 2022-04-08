@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Routes, Route } from "react-router-dom";
-import { BASE_URL } from "./components/constants/constants.js";
+import { BASE_URL, MediaCategory } from "./components/constants/constants.js";
 
 /* Page Imports */
 import HomePage from "./pages/HomePage";
@@ -34,7 +34,13 @@ const App = () => {
         <Route path="/" element={<HomePage mediaCards={mediaCards} />} />
         <Route
           path="/movies"
-          element={<MoviesPage mediaCards={mediaCards} />}
+          element={
+            <MoviesPage
+              movieCards={mediaCards.filter(
+                ({ category }) => category === MediaCategory.MOVIE
+              )}
+            />
+          }
         />
         <Route path="/tv" element={<TvPage mediaCards={mediaCards} />} />
         <Route

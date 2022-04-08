@@ -9,7 +9,7 @@ const HomePage = ({ mediaCards }) => {
   return (
     <Grid>
       {mediaCards.map((cardInfo) => {
-        return <MediaCard {...cardInfo} key={cardInfo.title} />;
+        return <MediaCard {...cardInfo} key={cardInfo.id} />;
       })}
     </Grid>
   );
