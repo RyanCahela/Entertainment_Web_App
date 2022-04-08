@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Routes, Route } from "react-router-dom";
+import { BASE_URL } from "./components/constants/constants.js";
 
 /* Page Imports */
 import HomePage from "./pages/HomePage";
@@ -19,14 +20,27 @@ const Container = styled.div`
 `;
 
 const App = () => {
+  const [mediaCards, setMediaCards] = useState([]);
+
+  useEffect(() => {
+    fetch(BASE_URL)
+      .then((res) => res.json())
+      .then((json) => setMediaCards(json));
+  }, []);
   return (
     <Container>
       <Header />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/movies" element={<MoviesPage />} />
-        <Route path="/tv" element={<TvPage />} />
-        <Route path="/bookmarks" element={<BookmarkPage />} />
+        <Route path="/" element={<HomePage mediaCards={mediaCards} />} />
+        <Route
+          path="/movies"
+          element={<MoviesPage mediaCards={mediaCards} />}
+        />
+        <Route path="/tv" element={<TvPage mediaCards={mediaCards} />} />
+        <Route
+          path="/bookmarks"
+          element={<BookmarkPage mediaCards={mediaCards} />}
+        />
       </Routes>
     </Container>
   );

@@ -6,6 +6,10 @@ import { ReactComponent as IconCategoryMovies } from "../../assets/icon-category
 
 const Container = styled.div`
   width: 100%;
+  &:hover {
+    transform: scale(1.01);
+    cursor: pointer;
+  }
 `;
 
 const Category = styled.span`
@@ -52,6 +56,15 @@ const MediaReleaseYear = styled.span`
   }
 `;
 
+const MediaTitle = styled.a`
+  color: var(--clr-white);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
 const MediaCard = ({ year, category, rating, thumbnail, title }) => {
   return (
     <Container>
@@ -64,7 +77,7 @@ const MediaCard = ({ year, category, rating, thumbnail, title }) => {
         </Category>
         <span>{rating}</span>
       </MediaDetails>
-      <div>The Great Lands</div>
+      <MediaTitle href="#">The Great Lands</MediaTitle>
     </Container>
   );
 };
