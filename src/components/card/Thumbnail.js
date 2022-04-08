@@ -2,8 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import BookmarkIcon from "../icons/BookmarkIcon";
 import { ReactComponent as PlayIconSvg } from "../../assets/icon-play.svg";
-import Icon from "../icons/Icon";
-import constants from "../constants/constants";
+import { BASE_URL } from "../constants/constants";
 
 const Container = styled.div`
   display: flex;
@@ -88,7 +87,6 @@ const Image = styled.img`
 
 const Thumbnail = ({ imgPaths, title }) => {
   const { small, medium, large } = imgPaths;
-  const { BASE_URL } = constants;
 
   const imgUrlSmall = `${BASE_URL}api${small.slice(1)}`;
   const imgUrlMedium = `${BASE_URL}api${medium.slice(1)}`;
