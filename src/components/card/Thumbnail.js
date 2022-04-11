@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import BookmarkIcon from "../icons/BookmarkIcon";
+import LoadingSpinner from "../animation/LoadingSpinner";
 import { ReactComponent as PlayIconSvg } from "../../assets/icon-play.svg";
 import { BASE_URL } from "../constants/constants";
 
@@ -12,6 +13,7 @@ const Container = styled.div`
 
   //temporary just for UI design, delete after placed in card component
   max-width: 100%;
+  min-height: 170px;
   margin-inline: auto;
 
   &::before {
@@ -102,6 +104,7 @@ const Thumbnail = ({ imgPaths, title }) => {
         `}
         alt={`thumbnail for ${title}`}
       />
+      <LoadingSpinner />
       <PlayContainer className="play-container">
         <PlayIconSvg />
         <span>Play</span>

@@ -19,7 +19,6 @@ const NavContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   min-width: 100%;
-  padding-inline: 1rem;
 `;
 
 const SearchContainer = styled.div``;

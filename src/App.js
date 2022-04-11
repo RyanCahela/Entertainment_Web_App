@@ -17,6 +17,7 @@ const Container = styled.div`
   margin-inline: auto;
   font-family: var(--ff-sans);
   padding-bottom: 5rem;
+  padding-inline: 1rem;
 `;
 
 const App = () => {

@@ -4,11 +4,14 @@ import MediaCard from "../components/card/MediaCard";
 
 const MoviesPage = ({ movieCards }) => {
   return (
-    <Grid>
-      {movieCards.map((movieCard) => (
-        <MediaCard {...movieCard} key={movieCard.title} />
-      ))}
-    </Grid>
+    <>
+      <h3>Movies</h3>
+      <Grid>
+        {movieCards.map((movieCard) => (
+          <MediaCard {...movieCard} key={movieCard.title} />
+        ))}
+      </Grid>
+    </>
   );
 };
 
