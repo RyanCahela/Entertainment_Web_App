@@ -16,16 +16,15 @@ const Spinner = styled.div`
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 
-  background: whitesmoke;
+  background: var(--clr-primary-dark);
+  border: 2px solid var(--clr-white);
   color: #333;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 75px;
+  height: 75px;
 `;
 
-const LoadingSpinner = () => {
-  return <Spinner>I'm spinner</Spinner>;
-};
-
-export default LoadingSpinner;
+export default Spinner;

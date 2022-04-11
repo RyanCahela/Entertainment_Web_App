@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import BookmarkIcon from "../icons/BookmarkIcon";
-import LoadingSpinner from "../animation/LoadingSpinner";
+import Spinner from "../animation/Spinner";
 import { ReactComponent as PlayIconSvg } from "../../assets/icon-play.svg";
 import { BASE_URL } from "../constants/constants";
 
@@ -85,9 +85,15 @@ const Image = styled.img`
   object-fit: cover;
   z-index: -1;
   width: 100%;
+  opacity: ${(props) => (props.isImageLoaded ? 1 : 0)};
+`;
+
+const LoadingSpinner = styled(Spinner)`
+  opacity: ${(props) => (props.isImageLoaded ? 0 : 1)};
 `;
 
 const Thumbnail = ({ imgPaths, title }) => {
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
   const { small, medium, large } = imgPaths;
 
   const imgUrlSmall = `${BASE_URL}api${small.slice(1)}`;
@@ -103,8 +109,10 @@ const Thumbnail = ({ imgPaths, title }) => {
           ${imgUrlLarge} 560w
         `}
         alt={`thumbnail for ${title}`}
+        onLoad={() => setIsImageLoaded(true)}
+        isImageLoaded={isImageLoaded}
       />
-      <LoadingSpinner />
+      <LoadingSpinner isImageLoaded={isImageLoaded} />
       <PlayContainer className="play-container">
         <PlayIconSvg />
         <span>Play</span>
