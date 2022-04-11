@@ -68,10 +68,10 @@ const randomNumberWith5Digits = (
   Math.random().toString(36) + "00000000000000000"
 ).slice(2, 7);
 
-const SearchInput = () => {
+const SearchInput = ({ className }) => {
   const { current: inputId } = useRef(`prefix--${randomNumberWith5Digits}`);
   return (
-    <InputContainer>
+    <InputContainer className={className}>
       <StyledLabel htmlFor={inputId}>
         <StyledImage
           src={SearchIcon}

@@ -3,3 +3,6 @@ export const MediaCategory = {
   TV: "TV Series",
   MOVIE: "Movie",
 };
+export const Breakpoints = {
+  DESKTOP: "1200px",
+};

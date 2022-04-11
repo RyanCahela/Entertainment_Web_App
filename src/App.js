@@ -10,7 +10,10 @@ import TvPage from "./pages/TvPage";
 import BookmarkPage from "./pages/BookmarkPage";
 
 /* Component Imports */
-import Header from "./components/header/Header";
+import HeaderComponent from "./components/header/Header";
+import SearchInputComponent from "./components/inputs/SearchInput";
+
+const desktopBreakpoint = "1200px";
 
 const Container = styled.div`
   max-width: 1200px;
@@ -18,6 +21,24 @@ const Container = styled.div`
   font-family: var(--ff-sans);
   padding-bottom: 5rem;
   padding-inline: 1rem;
+
+  @media screen and (min-width: ${desktopBreakpoint}) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+`;
+
+const Header = styled(HeaderComponent)`
+  @media screen and (min-width: ${desktopBreakpoint}) {
+    grid-column: 1 / 2;
+  }
+`;
+
+const SearchInput = styled(SearchInputComponent)`
+  @media screen and (min-width: ${desktopBreakpoint}) {
+    grid-row: 1 / 2;
+    grid-columns: 1 / -1;
+  }
 `;
 
 const App = () => {
@@ -31,6 +52,7 @@ const App = () => {
   return (
     <Container>
       <Header />
+      <SearchInput />
       <Routes>
         <Route path="/" element={<HomePage mediaCards={mediaCards} />} />
         <Route
