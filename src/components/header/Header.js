@@ -5,10 +5,10 @@ import { Breakpoints } from "../constants/constants";
 
 /* Import SVG Icons */
 import { ReactComponent as Logo } from "../../assets/logo.svg";
-import { ReactComponent as IconNavBookmark } from "../../assets/icon-nav-bookmark.svg";
-import { ReactComponent as IconNavHome } from "../../assets/icon-nav-home.svg";
-import { ReactComponent as IconNavMovies } from "../../assets/icon-nav-movies.svg";
-import { ReactComponent as IconNavTv } from "../../assets/icon-nav-tv-series.svg";
+import HomeIcon from "../icons/HomeIcon";
+import MoviesIcon from "../icons/MoviesIcon";
+import TvIcon from "../icons/TvIcon";
+import BookmarkNavIcon from "../icons/BookmarkNavIcon";
 
 const { DESKTOP } = Breakpoints;
 
@@ -46,29 +46,6 @@ const AvatarImage = styled.img`
   border-radius: 1000rem;
 `;
 
-//TODO: Possibly create a Nav component to clean up this long file.
-const HomeIcon = styled(IconNavHome)`
-  color: ${({ pathname }) =>
-    pathname === "/" ? "var(--clr-white)" : "var(--clr-primary-light)"};
-`;
-
-const MoviesIcon = styled(IconNavMovies)`
-  color: ${({ pathname }) =>
-    pathname === "/movies" ? "var(--clr-white)" : "var(--clr-primary-light)"};
-`;
-
-const TvIcon = styled(IconNavTv)`
-  color: ${({ pathname }) =>
-    pathname === "/tv" ? "var(--clr-white)" : "var(--clr-primary-light)"};
-`;
-
-const BookmarksIcon = styled(IconNavBookmark)`
-  color: ${({ pathname }) =>
-    pathname === "/bookmarks"
-      ? "var(--clr-white)"
-      : "var(--clr-primary-light)"};
-`;
-
 function Header({ className }) {
   const location = useLocation();
 
@@ -94,7 +71,7 @@ function Header({ className }) {
           </li>
           <li>
             <Link to="/bookmarks">
-              <BookmarksIcon {...location} />
+              <BookmarkNavIcon {...location} />
             </Link>
           </li>
         </NavList>
