@@ -12,9 +12,6 @@ const Container = styled.div`
   position: relative;
 
   //temporary just for UI design, delete after placed in card component
-  max-width: 100%;
-  min-height: 170px;
-  margin-inline: auto;
 
   &::before {
     content: "";
@@ -76,8 +73,8 @@ const PlayContainer = styled.div`
 
 const BookmarkIconContainer = styled.div`
   position: absolute;
-  inset-block-start: 1rem;
-  inset-inline-end: 1rem;
+  inset-block-start: 10%;
+  inset-inline-end: 10%;
   z-index: 2;
 `;
 
@@ -85,6 +82,7 @@ const Image = styled.img`
   object-fit: cover;
   z-index: -1;
   width: 100%;
+  height: 100%;
   opacity: ${(props) => (props.isImageLoaded ? 1 : 0)};
 `;
 
