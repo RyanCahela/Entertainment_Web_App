@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Link, useLocation } from "react-router-dom";
+import { Breakpoints } from "../constants/constants";
 
 /* Import SVG Icons */
 import { ReactComponent as Logo } from "../../assets/logo.svg";
@@ -9,13 +10,15 @@ import { ReactComponent as IconNavHome } from "../../assets/icon-nav-home.svg";
 import { ReactComponent as IconNavMovies } from "../../assets/icon-nav-movies.svg";
 import { ReactComponent as IconNavTv } from "../../assets/icon-nav-tv-series.svg";
 
+const { DESKTOP } = Breakpoints;
+
 const NavContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   min-width: 100%;
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: ${DESKTOP}) {
     flex-direction: column;
     justify-content: start;
     align-items: center;
@@ -28,9 +31,11 @@ const NavList = styled.ul`
   justify-content: space-between;
   min-width: 135px;
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: ${DESKTOP}) {
     flex-direction: column;
     align-items: center;
+    min-width: 0;
+    gap: 1rem;
   }
 `;
 

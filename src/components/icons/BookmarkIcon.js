@@ -25,8 +25,8 @@ const Container = styled.span`
   }
 `;
 
-const BookmarkIcon = () => {
-  const [isActive, setIsActive] = useState(false);
+const BookmarkIcon = ({ isBookmarked }) => {
+  const [isActive, setIsActive] = useState(isBookmarked);
 
   return (
     <Container

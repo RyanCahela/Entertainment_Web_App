@@ -66,10 +66,21 @@ const MediaTitle = styled.a`
   }
 `;
 
-const MediaCard = ({ year, category, rating, thumbnail, title }) => {
+const MediaCard = ({
+  year,
+  category,
+  rating,
+  thumbnail,
+  title,
+  isBookmarked,
+}) => {
   return (
     <Container>
-      <Thumbnail imgPaths={thumbnail.regular} title={title} />
+      <Thumbnail
+        imgPaths={thumbnail.regular}
+        title={title}
+        isBookmarked={isBookmarked}
+      />
       <MediaDetails>
         <MediaReleaseYear>{year}</MediaReleaseYear>
         <Category>

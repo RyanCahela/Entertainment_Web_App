@@ -12,8 +12,9 @@ import BookmarkPage from "./pages/BookmarkPage";
 /* Component Imports */
 import HeaderComponent from "./components/header/Header";
 import SearchInputComponent from "./components/inputs/SearchInput";
+import { Breakpoints } from "./components/constants/constants";
 
-const desktopBreakpoint = "1200px";
+const { DESKTOP } = Breakpoints;
 
 const Container = styled.div`
   max-width: 1200px;
@@ -22,20 +23,20 @@ const Container = styled.div`
   padding-bottom: 5rem;
   padding-inline: 1rem;
 
-  @media screen and (min-width: ${desktopBreakpoint}) {
+  @media screen and (min-width: ${DESKTOP}) {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 100px 1fr;
   }
 `;
 
 const Header = styled(HeaderComponent)`
-  @media screen and (min-width: ${desktopBreakpoint}) {
+  @media screen and (min-width: ${DESKTOP}) {
     grid-column: 1 / 2;
   }
 `;
 
 const SearchInput = styled(SearchInputComponent)`
-  @media screen and (min-width: ${desktopBreakpoint}) {
+  @media screen and (min-width: ${DESKTOP}) {
     grid-row: 1 / 2;
     grid-columns: 1 / -1;
   }
@@ -65,10 +66,25 @@ const App = () => {
             />
           }
         />
-        <Route path="/tv" element={<TvPage mediaCards={mediaCards} />} />
+        <Route
+          path="/tv"
+          element={
+            <TvPage
+              tvCards={mediaCards.filter(
+                ({ category }) => category === MediaCategory.TV
+              )}
+            />
+          }
+        />
         <Route
           path="/bookmarks"
-          element={<BookmarkPage mediaCards={mediaCards} />}
+          element={
+            <BookmarkPage
+              bookmarkCards={mediaCards.filter(
+                ({ isBookmarked }) => isBookmarked
+              )}
+            />
+          }
         />
       </Routes>
     </Container>
