@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { ReactComponent as BookmarkEmpty } from "../../assets/icon-bookmark-empty.svg";
 import { ReactComponent as BookmarkFull } from "../../assets/icon-bookmark-full.svg";
-import Icon from "./Icon";
 
 const Container = styled.span`
   background-color: var(--clr-black-50-percent-opacity);

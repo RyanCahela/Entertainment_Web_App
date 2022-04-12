@@ -1,20 +1,25 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
 import SearchIcon from "../../assets/icon-search.svg";
+import { Breakpoints } from "../constants/constants";
+
+const { DESKTOP, TABLET } = Breakpoints;
 
 const InputContainer = styled.div`
   display: flex;
-  align-items: center;
+  align-items: start;
   gap: 1.5rem;
   width: 100%;
   position: relative;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 `;
 
 const StyledLabel = styled.label`
   width: 24px;
   height: 24px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${TABLET}) {
     width: 32px;
     height: 32px;
   }
@@ -35,6 +40,7 @@ const TextInput = styled.input`
   position: relative;
   outline: none;
   border: none;
+  border-bottom: 1px solid transparent;
   flex-grow: 1;
 
   &:active,
@@ -42,23 +48,14 @@ const TextInput = styled.input`
     caret-color: var(--clr-primary-accent);
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${TABLET}) {
     font-size: var(--fs-600);
   }
 
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: ${DESKTOP}) {
     padding-bottom: 0.9375rem; /* 15px */
-
-    &:active,
-    &:focus::after {
-      /* border-bottom: 1px solid var(--clr-primary-light); */
-      content: "";
-      height: 2px;
-      background-color: var(--clr-primary-light);
-      width: 100%;
-      position: absolute;
-      bottom: 0;
-      left: 0;
+    &:focus-within {
+      border-bottom: 1px solid var(--clr-primary-light);
     }
   }
 `;

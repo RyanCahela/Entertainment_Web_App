@@ -38,7 +38,7 @@ const Header = styled(HeaderComponent)`
 const SearchInput = styled(SearchInputComponent)`
   @media screen and (min-width: ${DESKTOP}) {
     grid-row: 1 / 2;
-    grid-columns: 1 / -1;
+    grid-column: 1 / -1;
   }
 `;
 
