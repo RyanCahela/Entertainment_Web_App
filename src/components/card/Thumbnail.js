@@ -3,7 +3,9 @@ import styled from "styled-components";
 import BookmarkIcon from "../icons/BookmarkIcon";
 import Spinner from "../animation/Spinner";
 import { ReactComponent as PlayIconSvg } from "../../assets/icon-play.svg";
-import { BASE_URL } from "../constants/constants";
+import { BASE_URL, Breakpoints } from "../constants/constants";
+
+const { DESKTOP, TABLET } = Breakpoints;
 
 const Container = styled.div`
   display: flex;
@@ -84,6 +86,18 @@ const Image = styled.img`
   width: 100%;
   height: 100%;
   opacity: ${(props) => (props.isImageLoaded ? 1 : 0)};
+  min-width: 164px;
+  min-height: 110px;
+
+  @media screen and (min-width: ${TABLET}) {
+    min-width: 220px;
+    min-height: 140px;
+  }
+
+  @media screen and (min-width: ${DESKTOP}) {
+    min-width: 280px;
+    min-height: 174px;
+  }
 `;
 
 const LoadingSpinner = styled(Spinner)`

@@ -4,6 +4,6 @@ export const MediaCategory = {
   MOVIE: "Movie",
 };
 export const Breakpoints = {
-  DESKTOP: "1000px",
+  DESKTOP: "1200px",
   TABLET: "768px",
 };
