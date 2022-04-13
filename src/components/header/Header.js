@@ -19,9 +19,15 @@ const NavContainer = styled.div`
   min-width: 100%;
 
   @media screen and (min-width: ${DESKTOP}) {
+    background-color: var(--clr-primary-dark);
+    border-radius: 20px;
     flex-direction: column;
     justify-content: start;
     align-items: center;
+    height: 100%;
+    min-height: 960px;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 `;
 
@@ -39,11 +45,19 @@ const NavList = styled.ul`
   }
 `;
 
+const AvatarContainer = styled.div`
+  margin-top: auto;
+`;
+
 const AvatarImage = styled.img`
   width: 1.5rem;
   height: 1.5rem;
   border: 2px solid white;
   border-radius: 1000rem;
+
+  @media screen and (min-width: ${DESKTOP}) {
+    justify-self: end;
+  } ;
 `;
 
 function Header({ className }) {
@@ -76,7 +90,9 @@ function Header({ className }) {
           </li>
         </NavList>
       </nav>
-      <AvatarImage src="../../assets/image-avatar.png" alt="profile avatar" />
+      <AvatarContainer>
+        <AvatarImage src="../../assets/image-avatar.png" alt="profile avatar" />
+      </AvatarContainer>
     </NavContainer>
   );
 }
