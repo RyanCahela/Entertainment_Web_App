@@ -25,7 +25,7 @@ const Container = styled.div`
 
   @media screen and (min-width: ${DESKTOP}) {
     display: grid;
-    grid-template-columns: 100px 1fr;
+    grid-template-columns: 100px 36px 1fr;
   }
 `;
 
@@ -38,8 +38,12 @@ const Header = styled(HeaderComponent)`
 const SearchInput = styled(SearchInputComponent)`
   @media screen and (min-width: ${DESKTOP}) {
     grid-row: 1 / 2;
-    grid-column: 1 / -1;
+    grid-column: 3 / -1;
   }
+`;
+
+const GalleryContainer = styled.div`
+  grid-column: 3 / -1;
 `;
 
 const App = () => {
@@ -54,39 +58,41 @@ const App = () => {
     <Container>
       <Header />
       <SearchInput />
-      <Routes>
-        <Route path="/" element={<HomePage mediaCards={mediaCards} />} />
-        <Route
-          path="/movies"
-          element={
-            <MoviesPage
-              movieCards={mediaCards.filter(
-                ({ category }) => category === MediaCategory.MOVIE
-              )}
-            />
-          }
-        />
-        <Route
-          path="/tv"
-          element={
-            <TvPage
-              tvCards={mediaCards.filter(
-                ({ category }) => category === MediaCategory.TV
-              )}
-            />
-          }
-        />
-        <Route
-          path="/bookmarks"
-          element={
-            <BookmarkPage
-              bookmarkCards={mediaCards.filter(
-                ({ isBookmarked }) => isBookmarked
-              )}
-            />
-          }
-        />
-      </Routes>
+      <GalleryContainer>
+        <Routes>
+          <Route path="/" element={<HomePage mediaCards={mediaCards} />} />
+          <Route
+            path="/movies"
+            element={
+              <MoviesPage
+                movieCards={mediaCards.filter(
+                  ({ category }) => category === MediaCategory.MOVIE
+                )}
+              />
+            }
+          />
+          <Route
+            path="/tv"
+            element={
+              <TvPage
+                tvCards={mediaCards.filter(
+                  ({ category }) => category === MediaCategory.TV
+                )}
+              />
+            }
+          />
+          <Route
+            path="/bookmarks"
+            element={
+              <BookmarkPage
+                bookmarkCards={mediaCards.filter(
+                  ({ isBookmarked }) => isBookmarked
+                )}
+              />
+            }
+          />
+        </Routes>
+      </GalleryContainer>
     </Container>
   );
 };
