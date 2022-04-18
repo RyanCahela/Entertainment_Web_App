@@ -1,7 +1,14 @@
 import React from "react";
 
-const MediaCardTrending = ({ title }) => {
-  return <div>{title}</div>;
+const MediaCardTrending = ({
+  year,
+  category,
+  rating,
+  thumbnail,
+  title,
+  isBookmarked,
+}) => {
+  return <div></div>;
 };
 
 export default MediaCardTrending;

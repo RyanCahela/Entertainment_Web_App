@@ -12,7 +12,7 @@ const MediaCardTrendingContainer = ({ trendingCards }) => {
       <h2>Trending</h2>
       <SideScrollContainer>
         {trendingCards.map((card) => (
-          <div>{card.title}</div>
+          <MediaCardTrending {...card} />
         ))}
       </SideScrollContainer>
     </Container>
