@@ -104,7 +104,7 @@ const LoadingSpinner = styled(Spinner)`
   opacity: ${(props) => (props.isImageLoaded ? 0 : 1)};
 `;
 
-const Thumbnail = ({ imgPaths, title, isBookmarked }) => {
+const Thumbnail = ({ imgPaths, title, isBookmarked, children }) => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const { small, medium, large } = imgPaths;
 
@@ -132,6 +132,7 @@ const Thumbnail = ({ imgPaths, title, isBookmarked }) => {
       <BookmarkIconContainer>
         <BookmarkIcon isBookmarked={isBookmarked} />
       </BookmarkIconContainer>
+      {children}
     </Container>
   );
 };

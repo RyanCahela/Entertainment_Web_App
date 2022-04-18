@@ -4,7 +4,12 @@ import MediaCardTrending from "./MediaCardTrending";
 
 const Container = styled.div``;
 
-const SideScrollContainer = styled.div``;
+const SideScrollContainer = styled.div`
+  display: flex;
+  overflow: auto;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+`;
 
 const MediaCardTrendingContainer = ({ trendingCards }) => {
   return (
