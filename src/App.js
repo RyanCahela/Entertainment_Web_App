@@ -17,7 +17,7 @@ import { Breakpoints } from "./components/constants/constants";
 const { DESKTOP } = Breakpoints;
 
 const Container = styled.div`
-  max-width: 1200px;
+  max-width: 2000px;
   margin-inline: auto;
   font-family: var(--ff-sans);
   padding-bottom: 5rem;
@@ -26,6 +26,8 @@ const Container = styled.div`
   @media screen and (min-width: ${DESKTOP}) {
     display: grid;
     grid-template-columns: 100px 36px 1fr;
+    grid-template-rows: 100px auto;
+    padding-top: 2rem;
   }
 `;
 

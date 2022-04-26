@@ -2,12 +2,18 @@ import React from "react";
 import styled from "styled-components";
 import Thumbnail from "./Thumbnail";
 import MediaDetails from "./MediaDetails";
+import { Breakpoints } from "../constants/constants";
+
+const DESKTOP = Breakpoints.DESKTOP;
 
 const Container = styled.div`
   min-width: 240px;
   max-width: 470px;
   border-radius: 8px;
   overflow: hidden;
+
+  @media screen and (min-width: ${DESKTOP}) {
+  }
 `;
 
 const CardFooter = styled.div`

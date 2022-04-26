@@ -9,6 +9,7 @@ const Container = styled.div`
   align-items: center;
   gap: 1.1875rem; /* 19px */
   margin-block: 8px;
+  font-size: var(--fs-200);
 `;
 
 const Category = styled.span`

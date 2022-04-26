@@ -12,6 +12,8 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
+  border-radius: 8px;
+  overflow: hidden;
 
   //temporary just for UI design, delete after placed in card component
 

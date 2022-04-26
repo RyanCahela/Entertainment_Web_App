@@ -14,6 +14,7 @@ const Container = styled.div`
 const MediaTitle = styled.a`
   color: var(--clr-white);
   text-decoration: none;
+  font-size: var(--fs-400);
 
   &:hover {
     text-decoration: underline;
@@ -36,7 +37,7 @@ const MediaCard = ({
         isBookmarked={isBookmarked}
       />
       <MediaDetails {...{ year, rating, category }} />
-      <MediaTitle href="#">The Great Lands</MediaTitle>
+      <MediaTitle href="#">{title}</MediaTitle>
     </Container>
   );
 };
