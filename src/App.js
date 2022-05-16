@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer, useContext } from "react";
 import styled from "styled-components";
 import { Routes, Route } from "react-router-dom";
 import { BASE_URL, MediaCategory } from "./components/constants/constants.js";
@@ -13,6 +13,8 @@ import BookmarkPage from "./pages/BookmarkPage";
 import HeaderComponent from "./components/header/Header";
 import SearchInputComponent from "./components/inputs/SearchInput";
 import { Breakpoints } from "./components/constants/constants";
+import MyContext from "./components/context/MyContext";
+import reducer from "./components/reducer/Reducer";
 
 const { DESKTOP } = Breakpoints;
 
@@ -49,52 +51,57 @@ const GalleryContainer = styled.div`
 `;
 
 const App = () => {
-  const [mediaCards, setMediaCards] = useState([]);
+  const [mediaCards, dispatch] = useReducer(reducer, []);
+
+  // const [mediaCards, setMediaCards] = useState([]);
 
   useEffect(() => {
     fetch(BASE_URL)
       .then((res) => res.json())
-      .then((json) => setMediaCards(json));
+      .then((json) => dispatch({ type: "initialLoad", payload: json }));
   }, []);
+
   return (
     <Container>
       <Header />
       <SearchInput />
-      <GalleryContainer>
-        <Routes>
-          <Route path="/" element={<HomePage mediaCards={mediaCards} />} />
-          <Route
-            path="/movies"
-            element={
-              <MoviesPage
-                movieCards={mediaCards.filter(
-                  ({ category }) => category === MediaCategory.MOVIE
-                )}
-              />
-            }
-          />
-          <Route
-            path="/tv"
-            element={
-              <TvPage
-                tvCards={mediaCards.filter(
-                  ({ category }) => category === MediaCategory.TV
-                )}
-              />
-            }
-          />
-          <Route
-            path="/bookmarks"
-            element={
-              <BookmarkPage
-                bookmarkCards={mediaCards.filter(
-                  ({ isBookmarked }) => isBookmarked
-                )}
-              />
-            }
-          />
-        </Routes>
-      </GalleryContainer>
+      <MyContext.Provider value={{ dispatch }}>
+        <GalleryContainer>
+          <Routes>
+            <Route path="/" element={<HomePage mediaCards={mediaCards} />} />
+            <Route
+              path="/movies"
+              element={
+                <MoviesPage
+                  movieCards={mediaCards.filter(
+                    ({ category }) => category === MediaCategory.MOVIE
+                  )}
+                />
+              }
+            />
+            <Route
+              path="/tv"
+              element={
+                <TvPage
+                  tvCards={mediaCards.filter(
+                    ({ category }) => category === MediaCategory.TV
+                  )}
+                />
+              }
+            />
+            <Route
+              path="/bookmarks"
+              element={
+                <BookmarkPage
+                  bookmarkCards={mediaCards.filter(
+                    ({ isBookmarked }) => isBookmarked
+                  )}
+                />
+              }
+            />
+          </Routes>
+        </GalleryContainer>
+      </MyContext.Provider>
     </Container>
   );
 };

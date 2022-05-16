@@ -28,6 +28,7 @@ const MediaCard = ({
   thumbnail,
   title,
   isBookmarked,
+  id,
 }) => {
   return (
     <Container>
@@ -35,6 +36,7 @@ const MediaCard = ({
         imgPaths={thumbnail.regular}
         title={title}
         isBookmarked={isBookmarked}
+        id={id}
       />
       <MediaDetails {...{ year, rating, category }} />
       <MediaTitle href="#">{title}</MediaTitle>

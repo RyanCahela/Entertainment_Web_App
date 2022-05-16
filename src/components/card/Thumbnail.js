@@ -61,7 +61,7 @@ const PlayContainer = styled.div`
   transform: translate(-50%, -50%);
   transition-property: opacity;
   transition-duration: var(--transition-duration-fast);
-  transiiotn-timing-function: ease-in;
+  transition-timing-function: ease-in;
   z-index: 2;
 
   &:hover {
@@ -106,7 +106,7 @@ const LoadingSpinner = styled(Spinner)`
   opacity: ${(props) => (props.isImageLoaded ? 0 : 1)};
 `;
 
-const Thumbnail = ({ imgPaths, title, isBookmarked, children }) => {
+const Thumbnail = ({ imgPaths, title, isBookmarked, children, id }) => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const { small, medium, large } = imgPaths;
 
@@ -132,7 +132,7 @@ const Thumbnail = ({ imgPaths, title, isBookmarked, children }) => {
         <span>Play</span>
       </PlayContainer>
       <BookmarkIconContainer>
-        <BookmarkIcon isBookmarked={isBookmarked} />
+        <BookmarkIcon isBookmarked={isBookmarked} id={id} />
       </BookmarkIconContainer>
       {children}
     </Container>

@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import { ReactComponent as BookmarkEmpty } from "../../assets/icon-bookmark-empty.svg";
 import { ReactComponent as BookmarkFull } from "../../assets/icon-bookmark-full.svg";
+import MyContext from "../context/MyContext";
 
 const Container = styled.span`
   background-color: var(--clr-black-50-percent-opacity);
@@ -24,13 +25,16 @@ const Container = styled.span`
   }
 `;
 
-const BookmarkIcon = ({ isBookmarked }) => {
+const BookmarkIcon = ({ isBookmarked, id }) => {
   const [isActive, setIsActive] = useState(isBookmarked);
+
+  const { dispatch } = useContext(MyContext);
 
   return (
     <Container
       onClick={(e) => {
         setIsActive(!isActive);
+        dispatch({ type: "bookmarkClick", payload: { id } });
       }}
     >
       {isActive ? <BookmarkFull /> : <BookmarkEmpty />}
