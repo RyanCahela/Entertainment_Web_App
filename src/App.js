@@ -15,6 +15,7 @@ import SearchInputComponent from "./components/inputs/SearchInput";
 import { Breakpoints } from "./components/constants/constants";
 import MyContext from "./components/context/MyContext";
 import reducer from "./components/reducer/Reducer";
+import Spinner from "./components/animation/Spinner";
 
 const { DESKTOP } = Breakpoints;
 
@@ -66,41 +67,45 @@ const App = () => {
       <Header />
       <SearchInput />
       <MyContext.Provider value={{ dispatch }}>
-        <GalleryContainer>
-          <Routes>
-            <Route path="/" element={<HomePage mediaCards={mediaCards} />} />
-            <Route
-              path="/movies"
-              element={
-                <MoviesPage
-                  movieCards={mediaCards.filter(
-                    ({ category }) => category === MediaCategory.MOVIE
-                  )}
-                />
-              }
-            />
-            <Route
-              path="/tv"
-              element={
-                <TvPage
-                  tvCards={mediaCards.filter(
-                    ({ category }) => category === MediaCategory.TV
-                  )}
-                />
-              }
-            />
-            <Route
-              path="/bookmarks"
-              element={
-                <BookmarkPage
-                  bookmarkCards={mediaCards.filter(
-                    ({ isBookmarked }) => isBookmarked
-                  )}
-                />
-              }
-            />
-          </Routes>
-        </GalleryContainer>
+        {mediaCards.length < 1 ? (
+          <Spinner />
+        ) : (
+          <GalleryContainer>
+            <Routes>
+              <Route path="/" element={<HomePage mediaCards={mediaCards} />} />
+              <Route
+                path="/movies"
+                element={
+                  <MoviesPage
+                    movieCards={mediaCards.filter(
+                      ({ category }) => category === MediaCategory.MOVIE
+                    )}
+                  />
+                }
+              />
+              <Route
+                path="/tv"
+                element={
+                  <TvPage
+                    tvCards={mediaCards.filter(
+                      ({ category }) => category === MediaCategory.TV
+                    )}
+                  />
+                }
+              />
+              <Route
+                path="/bookmarks"
+                element={
+                  <BookmarkPage
+                    bookmarkCards={mediaCards.filter(
+                      ({ isBookmarked }) => isBookmarked
+                    )}
+                  />
+                }
+              />
+            </Routes>
+          </GalleryContainer>
+        )}
       </MyContext.Provider>
     </Container>
   );
