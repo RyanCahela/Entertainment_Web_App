@@ -34,6 +34,7 @@ const MediaCardTrending = ({
   thumbnail,
   title,
   isBookmarked,
+  id,
 }) => {
   return (
     <Container>
@@ -41,6 +42,7 @@ const MediaCardTrending = ({
         imgPaths={thumbnail.regular}
         title={title}
         isBookmarked={isBookmarked}
+        id={id}
       >
         <CardFooter>
           <MediaDetails {...{ year, rating, category }} />
