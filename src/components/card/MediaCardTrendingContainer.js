@@ -17,7 +17,7 @@ const MediaCardTrendingContainer = ({ trendingCards }) => {
       <h2>Trending</h2>
       <SideScrollContainer>
         {trendingCards.map((card) => (
-          <MediaCardTrending {...card} />
+          <MediaCardTrending {...card} key={card.id} />
         ))}
       </SideScrollContainer>
     </Container>

@@ -11,7 +11,6 @@ const reducer = (state, action) => {
             return { ...mediaCard, isBookmarked: true };
           }
         }
-        console.log(`${mediaCard.title} isBookmarked?`, mediaCard.isBookmarked);
         return mediaCard;
       });
     case "reset":
