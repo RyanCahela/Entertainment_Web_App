@@ -5,8 +5,13 @@ const reducer = (state, action) => {
     case "bookmarkClick":
       return state.map((mediaCard) => {
         if (mediaCard.id === action.payload.id) {
-          mediaCard.isBookmarked = !mediaCard.isBookmarked;
+          if (mediaCard.isBookmarked) {
+            return { ...mediaCard, isBookmarked: false };
+          } else {
+            return { ...mediaCard, isBookmarked: true };
+          }
         }
+        console.log(`${mediaCard.title} isBookmarked?`, mediaCard.isBookmarked);
         return mediaCard;
       });
     case "reset":

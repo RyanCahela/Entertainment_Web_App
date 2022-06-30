@@ -54,8 +54,6 @@ const GalleryContainer = styled.div`
 const App = () => {
   const [mediaCards, dispatch] = useReducer(reducer, []);
 
-  // const [mediaCards, setMediaCards] = useState([]);
-
   useEffect(() => {
     fetch(BASE_URL)
       .then((res) => res.json())
